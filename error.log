@@ -1,0 +1,99 @@
+Incorrect username and password for user (f)
+Exception on /login [POST]
+Traceback (most recent call last):
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\.venv\Lib\site-packages\pymysql\connections.py", line 649, in connect
+    sock = socket.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\socket.py", line 865, in create_connection
+    raise exceptions[0]
+  File "C:\Python312\Lib\socket.py", line 850, in create_connection
+    sock.connect(sa)
+OSError: [WinError 10049] The requested address is not valid in its context
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\app.py", line 27, in login
+    if valid_login(request.form['username'], request.form['password']):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\app.py", line 51, in valid_login
+    conn = pymysql.connect(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\.venv\Lib\site-packages\pymysql\connections.py", line 361, in __init__
+    self.connect()
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\.venv\Lib\site-packages\pymysql\connections.py", line 716, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '0.0.0.0' ([WinError 10049] The requested address is not valid in its context)")
+Exception on /login [POST]
+Traceback (most recent call last):
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\app.py", line 27, in login
+    if valid_login(request.form['username'], request.form['password']):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\app.py", line 58, in valid_login
+    cursor.execute("SELECT * FROM users WHERE username ='%s' AND password = '%s'" % (username, password))
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\.venv\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\.venv\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\.venv\Lib\site-packages\pymysql\connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\.venv\Lib\site-packages\pymysql\connections.py", line 825, in _read_query_result
+    result.read()
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\.venv\Lib\site-packages\pymysql\connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\.venv\Lib\site-packages\pymysql\connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\.venv\Lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\.venv\Lib\site-packages\pymysql\err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1146, "Table 'my_flask_app.users' doesn't exist")
+Exception on /login [POST]
+Traceback (most recent call last):
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\app.py", line 28, in login
+    flash("Successfully logged in")
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\.venv\Lib\site-packages\flask\helpers.py", line 335, in flash
+    session["_flashes"] = flashes
+    ~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Sundar Jagannath Das\PycharmProjects\FlaskProject1\.venv\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.

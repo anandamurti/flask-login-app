@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simple, clean, and responsive practice website template.">
+    <meta name="author" content="Ananda Murti">
+    <title>{% block title %}{% endblock %} - Practicing Flask</title>
+    {% block head %}{% endblock %}
+</head>
+<body>
+
+    <div id="logo">
+        <img src="{{ url_for('static', filename='Logo.png') }}" alt="practicingFlask." height="150px" />
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class="flashes">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+    <footer>
+        {% block footer %}
+        &copy; Copyright 2025 by <a href="https://practicingFlask.com">Practice Flask.Co></a>
+        {% endblock %}
+    </footer>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
